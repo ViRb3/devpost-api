@@ -1,4 +1,5 @@
 import requests
+from scrapers import shared
 from bs4 import BeautifulSoup
 
 class Profile:
@@ -7,6 +8,12 @@ class Profile:
     def __init__(self, username):
         req = requests.get('https://devpost.com/' + username)
         self.soup = BeautifulSoup(req.text, 'lxml')
+
+    def is_error_page(self) -> bool:
+        return shared.is_error_page(self.soup)
+        
+    def is_restricted_page(self) -> bool:
+        return shared.is_restricted_page(self.soup)
 
     def get_profile_img_url(self) -> str:
         profile_img = self.soup.select_one('#portfolio-user-photo img[src]')

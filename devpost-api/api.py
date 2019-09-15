@@ -10,6 +10,10 @@ def get_project(project_name):
     result = {}
 
     project = Projects(project_name)
+    if project.is_error_page():
+        return 'not found', 404
+    if project.is_restricted_page():
+        return 'restricted', 401
     result['title'] = project.get_title()
     result['heading'] = project.get_heading()
     result['text'] = project.get_text()
@@ -23,6 +27,10 @@ def get_user(username):
     result = {}
 
     profile = Profile(username)
+    if profile.is_error_page():
+        return 'not found', 404
+    if profile.is_restricted_page():
+        return 'restricted', 401
     result['names'] = profile.get_names()
     result['bio'] = profile.get_bio()
     result['profile_img_url'] = profile.get_profile_img_url()

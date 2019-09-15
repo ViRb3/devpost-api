@@ -1,4 +1,5 @@
 import requests
+from scrapers import shared
 from bs4 import BeautifulSoup
 
 class Projects:
@@ -7,6 +8,12 @@ class Projects:
     def __init__(self, project_name):
         req = requests.get('https://devpost.com/software/' + project_name)
         self.soup = BeautifulSoup(req.text, 'lxml')
+
+    def is_error_page(self) -> bool:
+        return shared.is_error_page(self.soup)
+
+    def is_restricted_page(self) -> bool:
+        return shared.is_restricted_page(self.soup)
 
     def get_text(self) -> [str]:
         entries = self.soup.select('#app-details-left > div')[1]
