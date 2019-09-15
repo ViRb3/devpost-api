@@ -8,8 +8,8 @@ An unofficial, scrape-based API for DevPost
 
 ## Usage
 ```
-/user/<username>
-/project/<project_name>
+/user/:username
+/project/:project_name
 ```
 
 ## To-do
