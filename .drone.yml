@@ -1,0 +1,17 @@
+kind: pipeline
+name: build
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: virb3/devpost-api
+    auto_tag: true
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
