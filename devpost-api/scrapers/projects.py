@@ -48,7 +48,7 @@ class Projects:
             url = url['href']
             description = member.select_one('div > p')
             description = '' if description == None else description.text
-            yield (url, description)
+            yield {'url': url, 'description': description}
 
     def get_submissions(self) -> [str]:
         subs = self.soup.select('#submissions ul li figure a[href]')

@@ -32,7 +32,7 @@ class Profile:
         # strip parentheses
         if len(username) > 3:
             username = username[1:-1]
-        return (name.strip(), username)
+        return {'fullname': name.strip(), 'username': username}
 
     def get_bio(self) -> str:
         bio = self.soup.select_one('#portfolio-user-bio')
@@ -61,11 +61,11 @@ class Profile:
     def get_links(self) -> (str, str, str):
         links = self.soup.select_one('#portfolio-user-links')
         if links == None:
-            return ('', '', '')
+            return {'location':'', 'website':'', 'github':''}
         location = self._get_links_location(links)
         website = self._get_links_website(links)
         github = self._get_links_github(links)
-        return (location, website, github)
+        return {'location': location, 'website': website, 'github': github}
 
     def _get_user_info_table_items(self, i: int) -> [str]:
         lists = self.soup.select('#portfolio-user-info div:has(div > span > strong) ul')
