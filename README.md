@@ -6,6 +6,20 @@ An unofficial, scrape-based API for DevPost
 ![GitHub Activity](https://img.shields.io/github/last-commit/ViRb3/devpost-api)
 ![License](https://img.shields.io/github/license/ViRb3/devpost-api)
 
+## Implemented
+| Profile           | Project           | Event
+| ---               | ---               | ---
+| Names             | Title             |
+| Bio               | Heading
+| Profile image     | Text
+| Links             | Built with
+| Skills            | Submissions
+| Interests         | Members
+| Software entries  |
+| Followers         |
+| Following         |
+| Likes             |
+
 ## Usage
 ```
 /user/:username
@@ -13,14 +27,7 @@ An unofficial, scrape-based API for DevPost
 ```
 
 ## To-do
-### Endpoints
-| Profile       | Project           | Hackathon
-| ---           | ---               | ---
-| Extra links   | Picture           | Everything
-| Cover image   | Updates
-|               | Text formatting
-|               | Likes
-|               | Comments
+### Remaining endpoints
 ### Performance
 - Async HTTP ([httpx?](https://github.com/encode/httpx))
 - Parallelize
