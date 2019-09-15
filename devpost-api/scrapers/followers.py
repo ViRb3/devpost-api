@@ -12,5 +12,5 @@ class Followers:
 
     def get_followers(self) -> [str]:
         followers = self.soup.select('#follow-entries div a[href]')
-        followers = [base_url + x['href'] for x in followers]
-        return followers
+        for follow in followers:
+            yield base_url + follow['href']

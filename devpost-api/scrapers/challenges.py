@@ -12,5 +12,5 @@ class Challenges:
 
     def get_hackathons(self) -> [str]:
         hackathons = self.challenges.select('div:has(.challenge-synopsis) a[href]')
-        hackathons = [x['href'].rsplit('/', 1)[0] for x in hackathons]
-        return hackathons
+        for hackathon in hackathons:
+            yield hackathon['href'].rsplit('/', 1)[0]

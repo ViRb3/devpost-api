@@ -3,8 +3,8 @@ from scrapers.followers import *
 from scrapers.following import *
 from scrapers.likes import *
 from scrapers.profiles import *
-
 from scrapers.projects import *
+import inspect
 
 def get_project(project_name):
     result = {}
@@ -19,7 +19,11 @@ def get_project(project_name):
     result['text'] = project.get_text()
     result['built-with'] = project.get_built_with()
     result['submissions'] = project.get_submissions()
-    result['members'] = list(project.get_members())
+    result['members'] = project.get_members()
+
+    for k, v in result.items():
+        if inspect.isgenerator(v):
+            result[k] = list(v)
 
     return result
 
@@ -47,5 +51,9 @@ def get_user(username):
 
     likes = Likes(username)
     result['likes'] = likes.get_likes()
+
+    for k, v in result.items():
+        if inspect.isgenerator(v):
+            result[k] = list(v)
 
     return result
