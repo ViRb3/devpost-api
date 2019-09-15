@@ -1,21 +1,30 @@
-from flask import Flask
-from flask_cors import CORS, cross_origin
+import uvicorn
+from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 import api
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI(__name__)
 
-@app.route('/')
-def hello():
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get('/')
+async def hello():
     return 'Hello'
 
-@app.route('/user/<username>')
-def user(username):
+@app.get('/user/{username}')
+def user(username: str):
     return api.get_user(username)
 
-@app.route('/project/<project_name>')
-def project(project_name):
+@app.get('/project/{project_name}')
+def project(project_name: str):
     return api.get_project(project_name)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

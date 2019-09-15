@@ -7,11 +7,11 @@ verify_ssl = true
 
 [packages]
 beautifulsoup4 = "*"
-requests = "*"
+htppx = "*"
 flask = "*"
-gunicorn = "*"
+uvicorn = "*"
 lxml = "*"
-flask-cors = "*"
+fastapi = "*"
 
 [requires]
 python_version = "3.7"

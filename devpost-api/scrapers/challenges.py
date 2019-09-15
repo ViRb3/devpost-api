@@ -1,4 +1,5 @@
-import requests
+
+import httpx
 from scrapers import shared
 from bs4 import BeautifulSoup
 
@@ -7,7 +8,7 @@ class Challenges:
     challenges = None
 
     def __init__(self, username):
-        req = requests.get(f'{shared.base_url}{username}/challenges')
+        req = httpx.get(f'{shared.base_url}{username}/challenges')
         self.soup = BeautifulSoup(req.text, 'lxml')
         self.challenges = self.soup.select_one('.challenge-container')
 

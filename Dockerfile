@@ -9,4 +9,4 @@ RUN pip install pipenv
 RUN pipenv sync
 
 EXPOSE 5000
-ENTRYPOINT pipenv run gunicorn --bind 0.0.0.0:5000 wsgi:app
+ENTRYPOINT pipenv run main:app --host 0.0.0.0 --port 8000

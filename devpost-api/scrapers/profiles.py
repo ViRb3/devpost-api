@@ -1,4 +1,5 @@
-import requests
+
+import httpx
 from scrapers import shared
 from bs4 import BeautifulSoup
 
@@ -6,7 +7,7 @@ class Profile:
     soup: BeautifulSoup = None
 
     def __init__(self, username):
-        req = requests.get(f'{shared.base_url}{username}')
+        req = httpx.get(f'{shared.base_url}{username}')
         self.soup = BeautifulSoup(req.text, 'lxml')
 
     def is_error_page(self) -> bool:
