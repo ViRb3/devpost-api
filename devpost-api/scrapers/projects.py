@@ -6,7 +6,7 @@ class Projects:
     soup = None
 
     def __init__(self, project_name):
-        req = requests.get('https://devpost.com/software/' + project_name)
+        req = requests.get(f'{shared.base_url}software/{project_name}')
         self.soup = BeautifulSoup(req.text, 'lxml')
 
     def is_error_page(self) -> bool:

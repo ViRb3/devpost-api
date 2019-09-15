@@ -6,7 +6,7 @@ class Profile:
     soup: BeautifulSoup = None
 
     def __init__(self, username):
-        req = requests.get('https://devpost.com/' + username)
+        req = requests.get(f'{shared.base_url}{username}')
         self.soup = BeautifulSoup(req.text, 'lxml')
 
     def is_error_page(self) -> bool:
