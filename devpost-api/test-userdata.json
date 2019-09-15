@@ -1,0 +1,36 @@
+{
+    "bio": "What day is it?",
+    "followers": [
+        "https://devpost.com//freddiejbawden"
+    ],
+    "following": [
+        "https://devpost.com//warpsmith"
+    ],
+    "interests": [
+        "AR/VR",
+        "Communication",
+        "Machine Learning/ AI",
+        "Social Good"
+    ],
+    "likes": [
+        "https://devpost.com/software/cat-house"
+    ],
+    "links": {
+        "github": "https://github.com/https://github.com/",
+        "location": "London, United Kingdom",
+        "website": "https://www.google.com/"
+    },
+    "names": {
+        "fullname": "John Doe",
+        "username": "vala"
+    },
+    "profile_img_url": "https://www.gravatar.com/avatar/b5c22ec2f95a6427a763b8e10ac8a55b?d=https%3A%2F%2Fdevpost-challengepost.netdna-ssl.com%2Fassets%2Fdefaults%2Fno-avatar-180.png&s=180",
+    "skills": [
+        "java",
+        "javascript",
+        "c#"
+    ],
+    "software_entries": [
+        "https://devpost.com/software/cat-house"
+    ]
+}
