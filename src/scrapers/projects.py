@@ -6,7 +6,7 @@ class Projects:
 
     def __init__(self, project_name):
         req = requests.get('https://devpost.com/software/' + project_name)
-        self.soup = BeautifulSoup(req.text, "lxml")
+        self.soup = BeautifulSoup(req.text, 'lxml')
 
     def get_text(self) -> [str]:
         entries = self.soup.select('#app-details-left > div')[1]

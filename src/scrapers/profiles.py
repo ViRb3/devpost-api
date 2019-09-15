@@ -6,7 +6,7 @@ class Profile:
 
     def __init__(self, username):
         req = requests.get('https://devpost.com/' + username)
-        self.soup = BeautifulSoup(req.text, "lxml")
+        self.soup = BeautifulSoup(req.text, 'lxml')
 
     def get_profile_img_url(self) -> str:
         profile_img = self.soup.select_one('#portfolio-user-photo img[src]')
@@ -23,13 +23,13 @@ class Profile:
         return (name.strip(), username[1:-1])
 
     def get_bio(self) -> str:
-        return self.soup.find(id="portfolio-user-bio").text.strip()
+        return self.soup.find(id='portfolio-user-bio').text.strip()
 
     def get_links(self) -> (str, str, str):
-        links = self.soup.find(id="portfolio-user-links")
-        location = links.select_one("li:has(.ss-location)").text.strip()
-        website = links.select_one("li:has(.ss-link) a[href]")['href']
-        github = links.select_one("li:has(.ss-octocat) a[href]")['href']
+        links = self.soup.find(id='portfolio-user-links')
+        location = links.select_one('li:has(.ss-location)').text.strip()
+        website = links.select_one('li:has(.ss-link) a[href]')['href']
+        github = links.select_one('li:has(.ss-octocat) a[href]')['href']
         return (location, website, github)
 
     def _get_user_info_table_items(self, i: int) -> [str]:

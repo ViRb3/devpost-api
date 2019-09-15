@@ -6,7 +6,7 @@ class Likes:
 
     def __init__(self, username):
         req = requests.get(f'https://devpost.com/{username}/likes')
-        self.soup = BeautifulSoup(req.text, "lxml")
+        self.soup = BeautifulSoup(req.text, 'lxml')
 
     def get_likes(self) -> [str]:
         entries = self.soup.select('#software-entries .link-to-software[href]')

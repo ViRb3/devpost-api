@@ -8,7 +8,7 @@ class Followers:
 
     def __init__(self, username):
         req = requests.get(f'https://devpost.com/{username}/followers')
-        self.soup = BeautifulSoup(req.text, "lxml")
+        self.soup = BeautifulSoup(req.text, 'lxml')
 
     def get_followers(self) -> [str]:
         followers = self.soup.select('#follow-entries div a[href]')
