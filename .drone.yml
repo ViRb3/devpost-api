@@ -6,6 +6,14 @@ platform:
   arch: amd64
 
 steps:
+- name: test
+  image: python:3.7.4-alpine3.10
+  commands:
+    - apk add --no-cache build-base libxml2-dev libxslt-dev
+    - pip install pipenv
+    - cd devpost-api
+    - pipenv sync
+    - pipenv run python test.py
 - name: docker  
   image: plugins/docker
   settings:
