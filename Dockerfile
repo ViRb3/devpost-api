@@ -1,6 +1,6 @@
 FROM python:3.7.4-alpine3.10
 
-COPY src/ /devpost-api/
+COPY devpost-api/ /devpost-api/
 WORKDIR /devpost-api
 
 RUN apk add --no-cache build-base libxml2-dev libxslt-dev
