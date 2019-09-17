@@ -9,4 +9,4 @@ RUN pip install pipenv
 RUN pipenv sync
 
 EXPOSE 5000
-ENTRYPOINT pipenv run main:app --host 0.0.0.0 --port 8000
+ENTRYPOINT pipenv run uvicorn main:app --host 0.0.0.0 --port 8000
