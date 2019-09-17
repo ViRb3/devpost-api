@@ -29,13 +29,12 @@ An unofficial, scrape-based API for DevPost
 ## To-do
 ### Remaining endpoints
 ### Performance
-- Async HTTP ([httpx?](https://github.com/encode/httpx))
+- [x] Async HTTP (Use[httpx](https://github.com/encode/httpx))
 - Parallelize
 
 ## Running
 ### Development
-`pipenv run python main.py`
+`pipenv run uvicorn main:app --reload`
 ### Deployment (Linux only)
-`pipenv run gunicorn --bind 0.0.0.0:5000 wsgi:app`
-
-## [License](LICENSE)
+`pipenv run uvicorn main:app`
+# [License](LICENSE)
