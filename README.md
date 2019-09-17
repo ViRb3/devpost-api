@@ -25,6 +25,13 @@ An unofficial, scrape-based API for DevPost
 /user/:username
 /project/:project_name
 ```
+## Interactive API Documentation
+
+Go to http://127.0.0.1:8000/docs.
+
+## Alternative API Docuememtation
+
+Now go to http://127.0.0.1:8000/redocs.
 
 ## To-do
 ### Remaining endpoints
