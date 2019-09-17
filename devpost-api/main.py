@@ -25,6 +25,3 @@ def user(username: str):
 @app.get('/project/{project_name}')
 def project(project_name: str):
     return api.get_project(project_name)
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
