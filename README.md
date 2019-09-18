@@ -41,4 +41,5 @@ An unofficial, scrape-based API for DevPost
 ### Deployment (Linux only)
 `pipenv run gunicorn --bind 0.0.0.0:5000 wsgi:app`
 
-## [License](LICENSE)
+## License
+### [MIT](LICENSE)
