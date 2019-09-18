@@ -3,6 +3,7 @@ An unofficial, scrape-based API for DevPost
 
 ![DroneCI](https://img.shields.io/drone/build/ViRb3/devpost-api)
 ![Docker Pulls](https://img.shields.io/docker/pulls/virb3/devpost-api)
+![Size](https://img.shields.io/github/repo-size/ViRb3/devpost-api)
 ![GitHub Activity](https://img.shields.io/github/last-commit/ViRb3/devpost-api)
 ![License](https://img.shields.io/github/license/ViRb3/devpost-api)
 
