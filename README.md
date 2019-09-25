@@ -6,6 +6,7 @@ An unofficial, scrape-based API for DevPost
 ![Size](https://img.shields.io/github/repo-size/ViRb3/devpost-api)
 ![GitHub Activity](https://img.shields.io/github/last-commit/ViRb3/devpost-api)
 ![License](https://img.shields.io/github/license/ViRb3/devpost-api)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/ViRb3/devpost-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ViRb3/devpost-api/alerts/)
 
 ## Implemented
 | Profile           | Project           | Event
