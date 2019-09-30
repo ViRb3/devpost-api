@@ -10,7 +10,6 @@ beautifulsoup4 = "*"
 requests = "*"
 flask = "*"
 gunicorn = "*"
-lxml = "*"
 flask-cors = "*"
 
 [requires]
