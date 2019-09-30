@@ -28,9 +28,6 @@ An unofficial, scrape-based API for DevPost
 /project/:project_name
 ```
 
-## Downloads
-### [Docker image](https://hub.docker.com/r/virb3/devpost-api)
-
 ## To-do
 ### Remaining endpoints
 ### Performance
@@ -38,10 +35,13 @@ An unofficial, scrape-based API for DevPost
 - Parallelize
 
 ## Running
+### Docker (recommended)
+- `docker pull virb3/devpost-api:latest`
+- `docker run virb3/devpost-api:latest -p 5000`
+- You can access the API at `http://127.0.0.1:5000`
 ### Development
-`pipenv run python main.py`
-### Deployment (Linux only)
-`pipenv run gunicorn --bind 0.0.0.0:5000 wsgi:app`
+- `pipenv install lxml` (or use prebuilt Linux package)
+- `pipenv run python main.py`
 
 ## License
 ### [MIT](LICENSE)
