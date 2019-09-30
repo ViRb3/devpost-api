@@ -1,12 +1,12 @@
-FROM python:3.7.4-alpine3.10
+FROM alpine:3.10
 
 COPY devpost-api/ /devpost-api/
 WORKDIR /devpost-api
 
-RUN apk add --no-cache build-base libxml2-dev libxslt-dev
+RUN apk add --no-cache python3 py3-lxml
 
-RUN pip install pipenv
-RUN pipenv sync
+RUN pip3 install pipenv
+RUN pipenv install --system --deploy --ignore-pipfile
 
 EXPOSE 5000
-ENTRYPOINT pipenv run gunicorn --bind 0.0.0.0:5000 wsgi:app
+ENTRYPOINT gunicorn --bind 0.0.0.0:5000 wsgi:app

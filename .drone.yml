@@ -7,14 +7,15 @@ platform:
 
 steps:
 - name: test
-  image: python:3.7.4-alpine3.10
+  image: alpine:3.10
   commands:
-    - apk add --no-cache build-base libxml2-dev libxslt-dev
-    - pip install pipenv
+    - apk add --no-cache python3 py3-lxml
+    - pip3 install pipenv
     - cd devpost-api
-    - pipenv sync
-    - pipenv run python test.py
-- name: docker  
+    # workaround https://github.com/pypa/pipenv/issues/3718
+    - pipenv install --system --deploy --ignore-pipfile
+    - python3 test.py
+- name: docker
   image: plugins/docker
   settings:
     repo: virb3/devpost-api
