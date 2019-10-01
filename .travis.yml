@@ -8,7 +8,7 @@ env:
 stages:
   - name: test
   - name: deploy
-    if: type != cron
+    if: type != cron AND tag
 
 before_script:
   - set -e
@@ -33,4 +33,4 @@ jobs:
         - docker buildx create --name mybuilder
         - docker buildx use mybuilder
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 --push -t $REPO_NAME .
+        - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 --push -t $REPO_NAME:$TRAVIS_TAG .
