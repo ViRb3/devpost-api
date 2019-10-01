@@ -34,3 +34,5 @@ jobs:
         - docker buildx use mybuilder
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 --push -t $REPO_NAME:$TRAVIS_TAG .
+        # tag as latest
+        - docker buildx imagetools create $REPO_NAME:$TRAVIS_TAG -t $REPO_NAME
