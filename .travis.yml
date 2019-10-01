@@ -1,0 +1,44 @@
+language: minimal
+
+services:
+  - docker
+
+env:
+  global:
+    - REPO_NAME=virb3/devpost-api
+
+stages:
+  - name: build
+  - name: test
+  - name: deploy
+    if: type != cron
+
+jobs:
+  include:
+    - stage: build
+      workspaces:
+        create:
+          name: docker-images
+          paths:
+            - image-test.tar
+            - image-latest.tar
+      script:
+        - docker build --target test -t $REPO_NAME:test .
+        - docker build --target release -t $REPO_NAME:latest .
+        - docker save $REPO_NAME:test -o image-test.tar
+        - docker save $REPO_NAME:latest -o image-latest.tar
+
+    - stage: test
+      workspaces:
+        use: docker-images
+      script:
+        - docker load -i image-test.tar
+        - docker run $REPO_NAME:test
+
+    - stage: deploy
+      workspaces:
+        use: docker-images
+      script:
+        - docker load -i image-latest.tar
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - docker push $REPO_NAME:latest
