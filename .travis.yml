@@ -20,7 +20,6 @@ jobs:
         - docker build --target test -t $REPO_NAME:test .
         - docker run $REPO_NAME:test
 
-    # https://community.arm.com/developer/tools-software/tools/b/tools-software-ides-blog/posts/getting-started-with-docker-for-arm-on-linux
     - stage: deploy
       before_script:
         # need Docker > 19.03 for buildx
@@ -29,6 +28,7 @@ jobs:
         - sudo apt-get update
         - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
       script:
+        # https://community.arm.com/developer/tools-software/tools/b/tools-software-ides-blog/posts/getting-started-with-docker-for-arm-on-linux
         - docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd4447ad3
         - docker buildx create --name mybuilder
         - docker buildx use mybuilder
