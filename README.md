@@ -38,7 +38,8 @@ Supported architectures: `amd64`, `arm32v6`, `arm32v7`, `arm64v8`
 
 ## To-do
 - Performance
-  - Async HTTP ([httpx?](https://github.com/encode/httpx))
+  - [uvicorn](https://www.uvicorn.org/)
+  - Async HTTP ([httpx/aiohttp](https://github.com/encode/httpx))
   - Parallelize
 - Remaining endpoints
 
