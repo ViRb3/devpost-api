@@ -7,7 +7,7 @@ class Projects:
 
     def __init__(self, project_name):
         req = requests.get(f'{shared.base_url}software/{project_name}')
-        self.soup = BeautifulSoup(req.text, 'lxml')
+        self.soup = BeautifulSoup(req.text, 'html.parser')
 
     def is_error_page(self) -> bool:
         return shared.is_error_page(self.soup)

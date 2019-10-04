@@ -34,7 +34,6 @@ Supported architectures: `amd64`, `arm32v6`, `arm32v7`, `arm64v8`
 - `docker run virb3/devpost-api:latest -p 5000`
 - You can access the API at `http://127.0.0.1:5000`
 ## Development
-- `pipenv install lxml` (or use prebuilt Linux package)
 - `pipenv run python main.py`
 
 ## To-do

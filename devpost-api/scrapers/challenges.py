@@ -8,7 +8,7 @@ class Challenges:
 
     def __init__(self, username):
         req = requests.get(f'{shared.base_url}{username}/challenges')
-        self.soup = BeautifulSoup(req.text, 'lxml')
+        self.soup = BeautifulSoup(req.text, 'html.parser')
         self.challenges = self.soup.select_one('.challenge-container')
 
     def get_hackathons(self) -> [str]:

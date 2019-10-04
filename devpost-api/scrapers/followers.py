@@ -7,7 +7,7 @@ class Followers:
 
     def __init__(self, username):
         req = requests.get(f'{shared.base_url}{username}/followers')
-        self.soup = BeautifulSoup(req.text, 'lxml')
+        self.soup = BeautifulSoup(req.text, 'html.parser')
 
     def get_followers(self) -> [str]:
         followers = self.soup.select('#follow-entries div a[href]')

@@ -7,7 +7,7 @@ class Profile:
 
     def __init__(self, username):
         req = requests.get(f'{shared.base_url}{username}')
-        self.soup = BeautifulSoup(req.text, 'lxml')
+        self.soup = BeautifulSoup(req.text, 'html.parser')
 
     def is_error_page(self) -> bool:
         return shared.is_error_page(self.soup)
