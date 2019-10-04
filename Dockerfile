@@ -1,12 +1,13 @@
-FROM alpine:3.10 AS base
+FROM python:3.7.4-alpine3.10 AS base
 
 COPY devpost-api/ /devpost-api/
 WORKDIR /devpost-api
 
-RUN apk add --no-cache python3 py3-lxml
+RUN apk add --no-cache py3-lxml
 
-RUN pip3 install pipenv
-RUN pipenv install --system --deploy --ignore-pipfile
+RUN pip3 install poetry
+RUN poetry config settings.virtualenvs.create false
+RUN poetry install
 
 # --------------------------------------------------------------------------
 
