@@ -1,6 +1,7 @@
 import api
 import json
 import sys
+import scrapers.shared as shared
 
 test_userdata_file = 'test-userdata.json'
 test_projectdata_file = 'test-projectdata.json'
@@ -29,6 +30,11 @@ def dump_data():
 
 # dump_data()
 
+followers = userdata['followers']
+if len(followers) < 1 or any(shared.base_url not in follower for follower in followers):
+    print(followers)
+    sys.exit(3)
+userdata['followers'] = []
 if not compare_data(test_userdata_file, userdata):
     sys.exit(1)
 if not compare_data(test_projectdata_file, projectdata):
