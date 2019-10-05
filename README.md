@@ -31,7 +31,7 @@ An unofficial, scrape-based API for DevPost
 ## [Docker image](https://hub.docker.com/r/virb3/devpost-api)
 Supported architectures: `amd64`, `arm32v6`, `arm32v7`, `arm64v8`
 - `docker pull virb3/devpost-api:latest`
-- `docker run virb3/devpost-api:latest -p 5000`
+- `docker run -p 5000:5000 virb3/devpost-api:latest`
 - You can access the API at `http://127.0.0.1:5000`
 ## Development
 - `poetry python main.py`
