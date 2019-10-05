@@ -34,7 +34,7 @@ Supported architectures: `amd64`, `arm32v6`, `arm32v7`, `arm64v8`
 - `docker run -p 5000:5000 virb3/devpost-api:latest`
 - You can access the API at `http://127.0.0.1:5000`
 ## Development
-- `poetry python main.py`
+- `poetry run python main.py`
 
 ## To-do
 - Performance
