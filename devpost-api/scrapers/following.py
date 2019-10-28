@@ -12,4 +12,4 @@ class Following:
     def get_following(self) -> [str]:
         following = self.soup.select('#follow-entries div a[href]')
         for follow in following:
-            yield shared.base_url + follow['href']
+            yield follow['href']
